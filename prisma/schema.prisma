@@ -9,3 +9,59 @@ datasource db {
   provider = "mongodb"
   url      = env("DATABASE_URL")
 }
+
+model User {
+  id              String    @id @default(auto()) @map("_id") @db.ObjectId
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+  posts           Post[]
+  writtenComments Comment[]
+
+  followers     User[]   @relation("UserFollows", fields: [followersIds], references: [id])
+  followersIds  String[] @db.ObjectId
+  followings    User[]   @relation("UserFollows", fields: [followingsIds], references: [id])
+  followingsIds String[] @db.ObjectId
+
+  friends            User[]   @relation("UserFriends", fields: [friendsIds], references: [id])
+  friendsIds         String[] @db.ObjectId
+  // friendsRelation only to store m-n relation
+  friendsRelation    User[]   @relation("UserFriends", fields: [friendsRelationIds], references: [id])
+  friendsRelationIds String[] @db.ObjectId
+
+  profile Profile?
+
+  @@unique([profile.username, profile.email])
+}
+
+model Post {
+  id        String    @id @default(auto()) @map("_id") @db.ObjectId
+  createdAt DateTime  @default(now())
+  content   String
+  author    User      @relation(references: [id], fields: [authorId], onDelete: Cascade, onUpdate: Cascade)
+  authorId  String    @db.ObjectId
+  comments  Comment[]
+}
+
+model Comment {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  createdAt DateTime @default(now())
+  content   String
+  author    User     @relation(references: [id], fields: [authorId], onUpdate: Cascade)
+  authorId  String   @db.ObjectId
+  post      Post     @relation(references: [id], fields: [postId], onDelete: Cascade, onUpdate: Cascade)
+  postId    String   @db.ObjectId
+}
+
+type Profile {
+  name           Name
+  username       String?
+  email          String?
+  city           String?
+  birthday       DateTime
+  profilePicture String?
+}
+
+type Name {
+  firstName String
+  lastName  String
+}
