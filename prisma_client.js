@@ -1,4 +1,4 @@
-const PrismaClient = require('@prisma/client');
+const { PrismaClient } = require('@prisma/client');
 
 /* 
     This file is created to use only one instance of Prisma client in code as described in:

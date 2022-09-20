@@ -28,9 +28,13 @@ model User {
   friendsRelation    User[]   @relation("UserFriends", fields: [friendsRelationIds], references: [id])
   friendsRelationIds String[] @db.ObjectId
 
-  profile Profile?
-
-  @@unique([profile.username, profile.email])
+  firstName      String
+  lastName       String
+  username       String?  @unique
+  email          String?  @unique
+  city           String?
+  birthday       DateTime
+  profilePicture String? // Needs to be reviewed in future
 }
 
 model Post {
@@ -50,18 +54,4 @@ model Comment {
   authorId  String   @db.ObjectId
   post      Post     @relation(references: [id], fields: [postId], onDelete: Cascade, onUpdate: Cascade)
   postId    String   @db.ObjectId
-}
-
-type Profile {
-  name           Name
-  username       String?
-  email          String?
-  city           String?
-  birthday       DateTime
-  profilePicture String?
-}
-
-type Name {
-  firstName String
-  lastName  String
 }
