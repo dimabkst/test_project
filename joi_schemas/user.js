@@ -25,8 +25,8 @@ const UserSchema = Joi.object({
         .trim(),
 
     username: Joi.string()
-        .min(LIMITATIONS.username_max_len)
-        .max(LIMITATIONS.username_min_len)
+        .min(LIMITATIONS.username_min_len)
+        .max(LIMITATIONS.username_max_len)
         .trim(),
 
     email: Joi.string()

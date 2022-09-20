@@ -20,7 +20,7 @@ const createUser = async (req, res, next) => {
         const user = await prisma.user.create({
             data: body
         });
-        res.status(200).json(user);
+        res.status(201).location('/users/' + user.id).json(); // Somewhy doesn't show anything without .json()
     } catch (err) {
         next(err);
     }
