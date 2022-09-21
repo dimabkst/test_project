@@ -10,7 +10,7 @@ const userById = async (req, res, next, id) => {
             }
         });
         if (!user) {
-            throw createError(404, "User with such Id not found");
+            throw createError.NotFound("User with such Id not found");
         }
 
         req.profile = user;
