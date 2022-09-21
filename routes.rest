@@ -12,3 +12,19 @@ Content-Type: application/json
     "city": "New York",
     "username": "jn_smth"
 }
+
+###
+GET  http://localhost:3000/users/632980f3b7b03623110dc9a0
+
+###
+PUT http://localhost:3000/users/632980f3b7b03623110dc9a0
+Content-Type: application/json
+
+{
+    "firstName": "John",
+    "city": "New Jersey",
+    "email": "jn_smth@gmail.com"
+}
+
+###
+DELETE  http://localhost:3000/users/632980f3b7b03623110dc9a0

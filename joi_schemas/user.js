@@ -51,4 +51,24 @@ const UserSchema = Joi.object({
         .required()
 });
 
-module.exports = UserSchema;
+// Has the same fields as UserSchema and fields below are not required
+// anymore, so it is possible to update User and validate input 
+const UpdateUserSchema = UserSchema.keys({
+    firstName: Joi.string()
+        .min(LIMITATIONS.firstName_min_len)
+        .max(LIMITATIONS.firstName_max_len)
+        .trim(),
+
+    lastName: Joi.string()
+        .min(LIMITATIONS.lastName_min_len)
+        .max(LIMITATIONS.lastName_max_len)
+        .trim(),
+
+    birthday: Joi.date()
+        .iso()
+});
+
+module.exports = {
+    UserSchema,
+    UpdateUserSchema
+};
