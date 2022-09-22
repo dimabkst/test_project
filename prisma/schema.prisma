@@ -32,9 +32,11 @@ model User {
   lastName       String
   username       String?  @unique
   email          String?  @unique
+  phoneNumber    String?  @unique // Didn't add any validation of this field
   city           String?
   birthday       DateTime
   profilePicture String? // Needs to be reviewed in future
+  password       String // Actually hashed password
 }
 
 model Post {

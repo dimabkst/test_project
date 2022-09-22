@@ -1,20 +1,13 @@
 const prisma = require('../prisma_client');
 const { UserSchema, UpdateUserSchema } = require('../joi_schemas/user');
+const jwt = require('../utils/jwt');
+const prismaHelper = require('../helpers/prisma');
 
 
 const listOfUsers = async (req, res, next) => {
     try {
         const users = await prisma.user.findMany({
-            select: {
-                id: true,
-                firstName: true,
-                lastName: true,
-                username: true,
-                email: true,
-                city: true,
-                birthday: true,
-                profilePicture: true
-            }
+            select: prismaHelper.DEFAULT_SELECT
         });
         res.status(200).json(users);
     } catch (err) {
@@ -31,7 +24,9 @@ const createUser = async (req, res, next) => {
         const user = await prisma.user.create({
             data: body
         });
-        res.status(201).location('/users/' + user.id).json(); // Somewhy doesn't show anything without .json()
+
+        const accessToken = await jwt.signAccessToken(user);
+        res.status(201).location('/users/' + user.id).json({ accesToken: accessToken });
     } catch (err) {
         next(err);
     }
@@ -41,7 +36,7 @@ const getUser = async (req, res, next) => {
     try {
         const user = req.profile;
 
-        res.status(200).json(user);
+        res.status(200).json(prismaHelper.exclude(user, 'password'));
     } catch (err) {
         next(err);
     }
@@ -59,7 +54,7 @@ const updateUser = async (req, res, next) => {
             data: req.body
         });
 
-        res.status(200).json(user);
+        res.status(200).json(prismaHelper.exclude(user, 'password'));
     } catch (err) {
         next(err);
     }
@@ -70,7 +65,8 @@ const deleteUser = async (req, res, next) => {
         const user = await prisma.user.delete({
             where: {
                 id: req.profile.id
-            }
+            },
+            select: prismaHelper.DEFAULT_SELECT
         });
 
         res.status(200).json(user);

@@ -5,26 +5,50 @@ POST http://localhost:3000/users
 Content-Type: application/json
 
 {
-    "firstName": "John",
+    "firstName": "Jane",
     "lastName": "Smith",
     "birthday": "2002-01-19",
-    "email": "jn_smth@gmail.com",
+    "email": "j_smth@gmail.com",
     "city": "New York",
-    "username": "jn_smth"
+    "username": "j_smth",
+    "password": "JJJ"
 }
 
 ###
-GET  http://localhost:3000/users/632980f3b7b03623110dc9a0
+GET  http://localhost:3000/users/632c63a69793f7bb106ccd84
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMmM2M2E2OTc5M2Y3YmIxMDZjY2Q4NCIsImlhdCI6MTY2Mzg1MzQ3OX0.qaPqCFUyhp7h4Pzswf-rkICXdPge2Mn0zNEsNYbQjgY
 
 ###
-PUT http://localhost:3000/users/632980f3b7b03623110dc9a0
+PUT http://localhost:3000/users/632c63a69793f7bb106ccd84
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMmM2M2E2OTc5M2Y3YmIxMDZjY2Q4NCIsImlhdCI6MTY2Mzg1MzQ3OX0.qaPqCFUyhp7h4Pzswf-rkICXdPge2Mn0zNEsNYbQjgY
 Content-Type: application/json
 
 {
-    "firstName": "John",
-    "city": "New Jersey",
-    "email": "jn_smth@gmail.com"
+    "phoneNumber": "0687781503"
 }
 
 ###
-DELETE  http://localhost:3000/users/632980f3b7b03623110dc9a0
+DELETE  http://localhost:3000/users/632b6174015aea142279b61b
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMmM2M2E2OTc5M2Y3YmIxMDZjY2Q4NCIsImlhdCI6MTY2Mzg1MzQ3OX0.qaPqCFUyhp7h4Pzswf-rkICXdPge2Mn0zNEsNYbQjgY
+
+###
+POST http://localhost:3000/login
+Content-Type: application/json
+
+{
+    "email": "p_parker@gmail.com",
+    "password": "web"
+}
+
+###
+POST http://localhost:3000/register
+Content-Type: application/json
+
+{
+    "firstName": "Tony",
+    "lastName": "Stark",
+    "birthday": "1980-01-15",
+    "city": "New York",
+    "password": "iron",
+    "email": "t_stark@gmail.com"
+}

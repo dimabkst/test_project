@@ -34,6 +34,9 @@ const UserSchema = Joi.object({
         .trim(),
     // or use .pattern(new RegExp('^.+\@.+\..+$')),
 
+    phoneNumber: Joi.string()
+        .trim(),
+
     city: Joi.string()
         .min(LIMITATIONS.city_min_len)
         .max(LIMITATIONS.city_max_len)
@@ -48,8 +51,11 @@ const UserSchema = Joi.object({
 
     updatedAt: Joi.date()
         .iso()
+        .required(),
+
+    password: Joi.string()
         .required()
-});
+}).or('email', 'username', 'phoneNumber');
 
 // Has the same fields as UserSchema and fields below are not required
 // anymore, so it is possible to update User and validate input 
@@ -65,7 +71,9 @@ const UpdateUserSchema = UserSchema.keys({
         .trim(),
 
     birthday: Joi.date()
-        .iso()
+        .iso(),
+
+    password: Joi.string()
 });
 
 module.exports = {
