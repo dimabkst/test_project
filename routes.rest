@@ -32,7 +32,7 @@ DELETE  http://localhost:3000/users/632b6174015aea142279b61b
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMmM2M2E2OTc5M2Y3YmIxMDZjY2Q4NCIsImlhdCI6MTY2Mzg1MzQ3OX0.qaPqCFUyhp7h4Pzswf-rkICXdPge2Mn0zNEsNYbQjgY
 
 ###
-POST http://localhost:3000/login
+POST http://localhost:3000/auth/login
 Content-Type: application/json
 
 {
@@ -41,7 +41,7 @@ Content-Type: application/json
 }
 
 ###
-POST http://localhost:3000/register
+POST http://localhost:3000/auth/register
 Content-Type: application/json
 
 {

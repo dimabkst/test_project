@@ -16,7 +16,7 @@ app.get('/', async (req, res) => {
 
 
 app.use('/users', usersRouter);
-app.use('/', authRouter);
+app.use('/auth', authRouter);
 
 
 app.use((req, res, next) => {
