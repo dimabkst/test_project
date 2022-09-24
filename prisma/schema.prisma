@@ -30,13 +30,15 @@ model User {
 
   firstName      String
   lastName       String
-  username       String?  @unique
-  email          String?  @unique
-  phoneNumber    String?  @unique // Didn't add any validation of this field
+  username       String?   @unique
+  email          String?   @unique
+  phoneNumber    String?   @unique // Didn't add any validation of this field
+  facebookId     String?   @unique
+  googleId       String?   @unique
   city           String?
-  birthday       DateTime
+  birthday       DateTime?
   profilePicture String? // Needs to be reviewed in future
-  password       String // Actually hashed password
+  password       String? // Actually hashed password
 }
 
 model Post {
@@ -56,4 +58,9 @@ model Comment {
   authorId  String   @db.ObjectId
   post      Post     @relation(references: [id], fields: [postId], onDelete: Cascade, onUpdate: Cascade)
   postId    String   @db.ObjectId
+}
+
+model user_unique_values_ids {
+  id    String @id @default(cuid()) @map("_id")
+  field String
 }

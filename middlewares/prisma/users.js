@@ -1,17 +1,37 @@
-const prisma = require('../../prisma_client');
+const { PrismaClient } = require('@prisma/client');
+const prisma = new PrismaClient(); // Cannot use one from prisma_client due to circular dependency
 const bcrypt = require('bcrypt');
-const createError = require('http-errors');
+const { problematicUserUniqueFields } = require('../../constants');
 
 const BCRYPT_SALT = 10;
 
 const passwordMiddleware = async (params, next) => {
     try {
-        if (params.action == 'create' || params.action == 'update'
+        if ((params.action == 'create' || params.action == 'update')
             && params.model == 'User' && params.args.data.password) {
-            const user = params.args.data;
+            let user = params.args.data;
             const salt = await bcrypt.genSalt(BCRYPT_SALT);
             const hashedPassword = await bcrypt.hash(user.password, salt);
             user.password = hashedPassword;
+            params.args.data = user;
+        }
+        return await next(params);
+    } catch (err) {
+        throw err;
+    }
+};
+
+const notNullUniqueValuesMiddleware = async (params, next) => {
+    try {
+        if (params.action == 'create' && params.model == 'User') {
+            const possibleNullUniqueFields = problematicUserUniqueFields;
+            let user = params.args.data;
+            for (let field of possibleNullUniqueFields) {
+                if (!user[field]) {
+                    let temp = await prisma.user_unique_values_ids.create({ data: { field: field } });
+                    user[field] = temp.id;
+                }
+            }
             params.args.data = user;
         }
         return await next(params);
@@ -40,4 +60,5 @@ const passwordMiddleware = async (params, next) => {
 
 module.exports = {
     passwordMiddleware,
+    notNullUniqueValuesMiddleware,
 }

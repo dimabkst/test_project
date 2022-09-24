@@ -15,29 +15,30 @@ Content-Type: application/json
 }
 
 ###
-GET  http://localhost:3000/users/632c63a69793f7bb106ccd84
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMmM2M2E2OTc5M2Y3YmIxMDZjY2Q4NCIsImlhdCI6MTY2Mzg1MzQ3OX0.qaPqCFUyhp7h4Pzswf-rkICXdPge2Mn0zNEsNYbQjgY
+GET  http://localhost:3000/users/632f15bf1116e5457b816a7d
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMmYxOGNkMDA5YmExOTZjM2MxOTRjNiIsImlhdCI6MTY2NDAzMDkyNn0.19xQIuVJV87wy81Wck1fdtigy_h1Sxl2X9yKhS5U2kM
 
 ###
-PUT http://localhost:3000/users/632c63a69793f7bb106ccd84
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMmM2M2E2OTc5M2Y3YmIxMDZjY2Q4NCIsImlhdCI6MTY2Mzg1MzQ3OX0.qaPqCFUyhp7h4Pzswf-rkICXdPge2Mn0zNEsNYbQjgY
+PUT http://localhost:3000/users/632f18cd009ba196c3c194c6
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMmYxOGNkMDA5YmExOTZjM2MxOTRjNiIsImlhdCI6MTY2NDAzMDkyNn0.19xQIuVJV87wy81Wck1fdtigy_h1Sxl2X9yKhS5U2kM
 Content-Type: application/json
 
 {
-    "phoneNumber": "0687781503"
+    "username": "dimabkst",
+    "password": "bob"
 }
 
 ###
-DELETE  http://localhost:3000/users/632b6174015aea142279b61b
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMmM2M2E2OTc5M2Y3YmIxMDZjY2Q4NCIsImlhdCI6MTY2Mzg1MzQ3OX0.qaPqCFUyhp7h4Pzswf-rkICXdPge2Mn0zNEsNYbQjgY
+DELETE  http://localhost:3000/users/632f15bf1116e5457b816a7d
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMmYxNWJmMTExNmU1NDU3YjgxNmE3ZCIsImlhdCI6MTY2NDAzMTA0OH0.XWoQysnYLwEiiijb3UQ5cWIfCtwre7rKJQqpw0SfbNE
 
 ###
 POST http://localhost:3000/auth/login
 Content-Type: application/json
 
 {
-    "email": "p_parker@gmail.com",
-    "password": "web"
+    "email": "t_stark@gmail.com",
+    "password": "iron"
 }
 
 ###
@@ -52,3 +53,6 @@ Content-Type: application/json
     "password": "iron",
     "email": "t_stark@gmail.com"
 }
+
+###
+GET http://localhost:3000/auth/login/facebook

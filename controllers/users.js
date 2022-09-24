@@ -1,14 +1,20 @@
 const prisma = require('../prisma_client');
 const { UserSchema, UpdateUserSchema } = require('../joi_schemas/user');
 const jwt = require('../utils/jwt');
-const prismaHelper = require('../helpers/prisma');
+const prismaHelpers = require('../helpers/prisma');
 
 
 const listOfUsers = async (req, res, next) => {
     try {
-        const users = await prisma.user.findMany({
-            select: prismaHelper.DEFAULT_SELECT
+        let users = await prisma.user.findMany({
+            select: prismaHelpers.DEFAULT_SELECT
         });
+        tempUsers = [];
+        for (let user of users) {
+            user = await prismaHelpers.excludeNotSetUserUniqueFieldsAndPassword(user);
+            tempUsers.push(user);
+        }
+        users = tempUsers;
         res.status(200).json(users);
     } catch (err) {
         next(err);
@@ -36,7 +42,7 @@ const getUser = async (req, res, next) => {
     try {
         const user = req.profile;
 
-        res.status(200).json(prismaHelper.exclude(user, 'password'));
+        res.status(200).json(await prismaHelpers.excludeNotSetUserUniqueFieldsAndPassword(user));
     } catch (err) {
         next(err);
     }
@@ -54,7 +60,7 @@ const updateUser = async (req, res, next) => {
             data: req.body
         });
 
-        res.status(200).json(prismaHelper.exclude(user, 'password'));
+        res.status(200).json(await prismaHelpers.excludeNotSetUserUniqueFieldsAndPassword(user));
     } catch (err) {
         next(err);
     }
@@ -66,10 +72,10 @@ const deleteUser = async (req, res, next) => {
             where: {
                 id: req.profile.id
             },
-            select: prismaHelper.DEFAULT_SELECT
+            select: prismaHelpers.DEFAULT_SELECT
         });
 
-        res.status(200).json(user);
+        res.status(200).json(await prismaHelpers.excludeNotSetUserUniqueFieldsAndPassword(user));
     } catch (err) {
         next(err);
     }

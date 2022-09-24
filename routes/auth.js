@@ -1,3 +1,4 @@
+const passport = require('../utils/passport');
 const express = require('express');
 const router = express.Router();
 
@@ -8,5 +9,11 @@ router.route('/register')
 
 router.route('/login')
     .post(authController.login);
+
+router.route('/login/facebook')
+    .get(passport.authenticate('facebook'), authController.login);
+
+router.route('/login/google')
+    .get(passport.authenticate('google'), authController.login);
 
 module.exports = router;
