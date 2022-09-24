@@ -38,7 +38,7 @@ const login = async (req, res, next) => {
 
         const accessToken = await jwt.signAccessToken(user);
 
-        res.status(200).json({ accessToken: accessToken, user: await prismaHelpers.excludeNotSetUserUniqueFieldsAndPassword(user) });
+        res.status(201).location('/users/' + user.id).json({ accesToken: accessToken });
     } catch (err) {
         next(err);
     }

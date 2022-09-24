@@ -11,6 +11,10 @@ const LIMITATIONS = {
     city_max_len: 50,
 };
 
+/* Removed facebookId and googleId so user won't be able to change them using
+PUT request. We don't need them here because when loginning with FB, Google
+there is no Joi validation of input (that data was already validated by FB, Google)
+*/
 const UserSchema = Joi.object({
     firstName: Joi.string()
         .min(LIMITATIONS.firstName_min_len)
@@ -37,12 +41,6 @@ const UserSchema = Joi.object({
     phoneNumber: Joi.string()
         .trim(),
 
-    facebookId: Joi.string()
-        .trim(),
-
-    googleId: Joi.string()
-        .trim(),
-
     city: Joi.string()
         .min(LIMITATIONS.city_min_len)
         .max(LIMITATIONS.city_max_len)
@@ -60,7 +58,7 @@ const UserSchema = Joi.object({
 
     password: Joi.string()
         .required()
-}).or('email', 'username', 'phoneNumber', 'facebookId', 'googleId');
+}).or('email', 'username', 'phoneNumber');
 
 // Has the same fields as UserSchema and fields below are not required
 // anymore, so it is possible to update User and validate input 
