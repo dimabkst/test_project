@@ -15,17 +15,17 @@ Content-Type: application/json
 }
 
 ###
-GET  http://localhost:3000/users/632f30fe51d53fdaf800b3fe
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMmYzNGFiNTg1ZjBkMjcwYjI1YjgzYyIsImlhdCI6MTY2NDA5NTkxNH0.tqTUX_cILGCSIwFQkjFy7R1JK-yNFqRdkC3kTR17C50
+GET  http://localhost:3000/users/632f34ab585f0d270b25b83c
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMmYzNGFiNTg1ZjBkMjcwYjI1YjgzYyIsImlhdCI6MTY2NDA5NjgyMX0.cDpLPUxToAU6lBj7KaixpsNikhiQLruotnQkdkaecuk
 
 ###
-PUT http://localhost:3000/users/632f18cd009ba196c3c194c6
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMmYxOGNkMDA5YmExOTZjM2MxOTRjNiIsImlhdCI6MTY2NDAzMDkyNn0.19xQIuVJV87wy81Wck1fdtigy_h1Sxl2X9yKhS5U2kM
+PUT http://localhost:3000/users/632f34ab585f0d270b25b83c
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMmYzNGFiNTg1ZjBkMjcwYjI1YjgzYyIsImlhdCI6MTY2NDA5NjgyMX0.cDpLPUxToAU6lBj7KaixpsNikhiQLruotnQkdkaecuk
 Content-Type: application/json
 
 {
-    "username": "dimabkst",
-    "password": "bob"
+    "username": "ironman",
+    "password": "iron"
 }
 
 ###
@@ -56,4 +56,4 @@ Content-Type: application/json
 
 ###
 DELETE http://localhost:3000/auth/logout
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMmYzNGFiNTg1ZjBkMjcwYjI1YjgzYyIsImlhdCI6MTY2NDA5NTkxNH0.tqTUX_cILGCSIwFQkjFy7R1JK-yNFqRdkC3kTR17C50
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMmYzNGFiNTg1ZjBkMjcwYjI1YjgzYyIsImlhdCI6MTY2NDA5NjgyMX0.cDpLPUxToAU6lBj7KaixpsNikhiQLruotnQkdkaecuk

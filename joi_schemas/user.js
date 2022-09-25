@@ -52,10 +52,6 @@ const UserSchema = Joi.object({
 
     profilePicture: Joi.string(),
 
-    updatedAt: Joi.date()
-        .iso()
-        .required(),
-
     password: Joi.string()
         .required()
 }).or('email', 'username', 'phoneNumber');

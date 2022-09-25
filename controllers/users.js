@@ -23,7 +23,6 @@ const listOfUsers = async (req, res, next) => {
 
 const createUser = async (req, res, next) => {
     try {
-        req.body.updatedAt = new Date();
         const body = await UserSchema
             .validateAsync(req.body, { abortEarly: true });
 
@@ -56,7 +55,6 @@ const getUser = async (req, res, next) => {
 
 const updateUser = async (req, res, next) => {
     try {
-        req.body.updatedAt = new Date();
         await UpdateUserSchema.validateAsync(req.body, { abortEarly: true });
 
         const user = await prisma.user.update({
