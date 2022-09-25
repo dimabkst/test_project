@@ -1,5 +1,6 @@
 const jwt = require('../utils/jwt');
 const createError = require('http-errors');
+const prisma = require('../prisma_client');
 
 const authenticationCheck = async (req, res, next) => {
     try {
@@ -9,6 +10,15 @@ const authenticationCheck = async (req, res, next) => {
 
         const token = req.headers.authorization.split(' ')[1];
         if (!token) {
+            throw createError.Unauthorized();
+        }
+
+        const activeToken = await prisma.activeAccessTokens.findFirst({
+            where: {
+                token: token
+            }
+        });
+        if (!activeToken) {
             throw createError.Unauthorized();
         }
 

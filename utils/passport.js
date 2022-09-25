@@ -41,7 +41,6 @@ passport.use(new GoogleStrategy({
 },
     async function (issuer, profile, cb) {
         try {
-            console.log(profile);
             let user = await prisma.user.findUnique({
                 where: {
                     googleId: profile.id

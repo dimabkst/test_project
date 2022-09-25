@@ -3,12 +3,17 @@ const express = require('express');
 const router = express.Router();
 
 const authController = require('../controllers/auth');
+const authMidllewares = require('../middlewares/auth');
 
 router.route('/register')
     .post(authController.register);
 
 router.route('/login')
     .post(authController.login);
+
+router.route('/logout')
+    .delete(authMidllewares.authenticationCheck,
+        authController.logout);
 
 router.route('/login/facebook')
     .get(passport.authenticate('facebook'), authController.login);

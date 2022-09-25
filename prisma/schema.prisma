@@ -64,3 +64,8 @@ model user_unique_values_ids {
   id    String @id @default(cuid()) @map("_id")
   field String
 }
+
+model ActiveAccessTokens {
+  id    String @id @default(auto()) @map("_id") @db.ObjectId
+  token String
+}

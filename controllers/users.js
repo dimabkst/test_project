@@ -32,6 +32,12 @@ const createUser = async (req, res, next) => {
         });
 
         const accessToken = await jwt.signAccessToken(user);
+        await prisma.activeAccessTokens.create({
+            data: {
+                token: accessToken
+            }
+        });
+
         res.status(201).location('/users/' + user.id).json({ accesToken: accessToken });
     } catch (err) {
         next(err);
