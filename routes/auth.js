@@ -5,8 +5,11 @@ const router = express.Router();
 const authController = require('../controllers/auth');
 const authMidllewares = require('../middlewares/auth');
 
+const joiUsersMiddlewares = require('../middlewares/joi/users');
+
 router.route('/register')
-    .post(authController.register);
+    .post(joiUsersMiddlewares.userDataValidation,
+        authController.register);
 
 router.route('/login')
     .post(authController.login);

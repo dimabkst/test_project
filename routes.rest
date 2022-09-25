@@ -46,12 +46,12 @@ POST http://localhost:3000/auth/register
 Content-Type: application/json
 
 {
-    "firstName": "Tony",
-    "lastName": "Stark",
-    "birthday": "1980-01-15",
+    "firstName": "Steven",
+    "lastName": "Strange",
+    "birthday": "1990-01-15",
     "city": "New York",
-    "password": "iron",
-    "email": "t_stark@gmail.com"
+    "password": "magic",
+    "email": "dr_strange@gmail.com"
 }
 
 ###

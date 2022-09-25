@@ -23,11 +23,8 @@ const listOfUsers = async (req, res, next) => {
 
 const createUser = async (req, res, next) => {
     try {
-        const body = await UserSchema
-            .validateAsync(req.body, { abortEarly: true });
-
         const user = await prisma.user.create({
-            data: body
+            data: req.body
         });
 
         const accessToken = await jwt.signAccessToken(user);
@@ -55,8 +52,6 @@ const getUser = async (req, res, next) => {
 
 const updateUser = async (req, res, next) => {
     try {
-        await UpdateUserSchema.validateAsync(req.body, { abortEarly: true });
-
         const user = await prisma.user.update({
             where: {
                 id: req.profile.id

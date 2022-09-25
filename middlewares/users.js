@@ -44,5 +44,5 @@ const emptyBodyCheck = (req, res, next) => {
 
 module.exports = {
     userById,
-    emptyBodyCheck
-}
+    emptyBodyCheck,
+};
