@@ -44,7 +44,10 @@ const login = async (req, res, next) => {
             }
         });
 
-        res.status(201).location('/users/' + user.id).json({ accesToken: accessToken });
+        res.status(201).location('/users/' + user.id).json({
+            status: 201,
+            data: { accesToken: accessToken }
+        });
     } catch (err) {
         next(err);
     }
@@ -59,7 +62,10 @@ const logout = async (req, res, next) => {
             }
         });
 
-        res.status(200).json({ message: "Successfully logout" });
+        res.status(200).json({
+            status: 200,
+            data: null
+        });
     } catch (err) {
         next(err);
     }

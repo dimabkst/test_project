@@ -29,16 +29,16 @@ Content-Type: application/json
 }
 
 ###
-DELETE  http://localhost:3000/users/632f15bf1116e5457b816a7d
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMmYxNWJmMTExNmU1NDU3YjgxNmE3ZCIsImlhdCI6MTY2NDAzMTA0OH0.XWoQysnYLwEiiijb3UQ5cWIfCtwre7rKJQqpw0SfbNE
+DELETE  http://localhost:3000/users/633026a74a150207ade2474d
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMzAyNmE3NGExNTAyMDdhZGUyNDc0ZCIsImlhdCI6MTY2NDEwMTcwMH0.v6SVP26Wwnh-BUIpMtrWW_xR0fXQPcnEr0xWr5jTWlU
 
 ###
 POST http://localhost:3000/auth/login
 Content-Type: application/json
 
 {
-    "email": "t_stark@gmail.com",
-    "password": "iron"
+    "email": "p_parker@gmail.com",
+    "password": "web"
 }
 
 ###
@@ -56,4 +56,4 @@ Content-Type: application/json
 
 ###
 DELETE http://localhost:3000/auth/logout
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMmYzNGFiNTg1ZjBkMjcwYjI1YjgzYyIsImlhdCI6MTY2NDA5NjgyMX0.cDpLPUxToAU6lBj7KaixpsNikhiQLruotnQkdkaecuk
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMmYzNGFiNTg1ZjBkMjcwYjI1YjgzYyIsImlhdCI6MTY2NDA5NzUxNX0.3W9HW_XMJ3Mx1hWMDr34sF4hXZaG6NEq1xdAse1GMwI

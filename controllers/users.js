@@ -15,7 +15,10 @@ const listOfUsers = async (req, res, next) => {
             tempUsers.push(user);
         }
         users = tempUsers;
-        res.status(200).json(users);
+        res.status(200).json({
+            status: 200,
+            data: { users: users }
+        });
     } catch (err) {
         next(err);
     }
@@ -34,7 +37,10 @@ const createUser = async (req, res, next) => {
             }
         });
 
-        res.status(201).location('/users/' + user.id).json({ accesToken: accessToken });
+        res.status(201).location('/users/' + user.id).json({
+            status: 201,
+            data: { accesToken: accessToken }
+        });
     } catch (err) {
         next(err);
     }
@@ -44,7 +50,10 @@ const getUser = async (req, res, next) => {
     try {
         const user = req.profile;
 
-        res.status(200).json(await prismaHelpers.excludeNotSetUserUniqueFieldsAndPassword(user));
+        res.status(200).json({
+            status: 200,
+            data: { user: await prismaHelpers.excludeNotSetUserUniqueFieldsAndPassword(user) }
+        });
     } catch (err) {
         next(err);
     }
@@ -59,7 +68,10 @@ const updateUser = async (req, res, next) => {
             data: req.body
         });
 
-        res.status(200).json(await prismaHelpers.excludeNotSetUserUniqueFieldsAndPassword(user));
+        res.status(200).json({
+            status: 200,
+            data: { user: await prismaHelpers.excludeNotSetUserUniqueFieldsAndPassword(user) }
+        });
     } catch (err) {
         next(err);
     }
@@ -74,7 +86,17 @@ const deleteUser = async (req, res, next) => {
             select: prismaHelpers.DEFAULT_SELECT
         });
 
-        res.status(200).json(await prismaHelpers.excludeNotSetUserUniqueFieldsAndPassword(user));
+        const accessToken = req.headers.authorization.split(' ')[1];
+        await prisma.activeAccessTokens.deleteMany({
+            where: {
+                token: accessToken
+            }
+        });
+
+        res.status(200).json({
+            status: 200,
+            data: null
+        });
     } catch (err) {
         next(err);
     }
