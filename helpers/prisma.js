@@ -38,8 +38,18 @@ const excludeNotSetUserUniqueFieldsAndPassword = async (user) => {
     return user;
 }
 
+const excludeNotSetUsersUniqueFieldsAndPassword = async (users) => {
+    let tempUsers = [];
+    for (let user of users) {
+        user = await excludeNotSetUserUniqueFieldsAndPassword(user);
+        tempUsers.push(user);
+    }
+    return tempUsers;
+}
+
 module.exports = {
     DEFAULT_SELECT,
     exclude,
     excludeNotSetUserUniqueFieldsAndPassword,
+    excludeNotSetUsersUniqueFieldsAndPassword
 };

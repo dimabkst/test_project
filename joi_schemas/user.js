@@ -31,7 +31,8 @@ const UserSchema = Joi.object({
     username: Joi.string()
         .min(LIMITATIONS.username_min_len)
         .max(LIMITATIONS.username_max_len)
-        .trim(),
+        .trim()
+        .pattern(/^[^_\s]\w+[^_\s]$/), // Ok: a_a, aa. Not Ok: _a, a_, a a and combinations.
 
     email: Joi.string()
         .email({ minDomainSegments: 2 })

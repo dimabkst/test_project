@@ -1,5 +1,4 @@
 const prisma = require('../prisma_client');
-const { UserSchema, UpdateUserSchema } = require('../joi_schemas/user');
 const jwt = require('../utils/jwt');
 const prismaHelpers = require('../helpers/prisma');
 
@@ -9,12 +8,8 @@ const listOfUsers = async (req, res, next) => {
         let users = await prisma.user.findMany({
             select: prismaHelpers.DEFAULT_SELECT
         });
-        tempUsers = [];
-        for (let user of users) {
-            user = await prismaHelpers.excludeNotSetUserUniqueFieldsAndPassword(user);
-            tempUsers.push(user);
-        }
-        users = tempUsers;
+        users = await prismaHelpers.excludeNotSetUsersUniqueFieldsAndPassword(users);
+
         res.status(200).json({
             status: 200,
             data: { users: users }

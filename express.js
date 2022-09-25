@@ -5,6 +5,7 @@ const express = require('express');
 
 const usersRouter = require('./routes/users');
 const authRouter = require('./routes/auth');
+const searchsRouter = require('./routes/searchs');
 
 const app = express();
 
@@ -27,6 +28,7 @@ app.get('/', async (req, res) => {
 
 app.use('/users', usersRouter);
 app.use('/auth', authRouter);
+app.use('/searchs', searchsRouter);
 
 
 app.use((req, res, next) => {

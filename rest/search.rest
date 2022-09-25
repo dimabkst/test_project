@@ -1,0 +1,7 @@
+GET http://localhost:3000/searchs/users
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMmYzNGFiNTg1ZjBkMjcwYjI1YjgzYyIsImlhdCI6MTY2NDExMjIyNn0.DiiHZCDLXkZaJO0chUN-qLPlr_AZ21kzzhVmJyaaG_w
+Content-Type: application/json
+
+{
+    "data": "Бобик"
+}
