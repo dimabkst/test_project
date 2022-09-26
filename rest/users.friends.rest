@@ -1,0 +1,63 @@
+
+###
+GET  http://localhost:3000/users/632f34ab585f0d270b25b83c/friends
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMmYzNGFiNTg1ZjBkMjcwYjI1YjgzYyIsImlhdCI6MTY2NDExMjIyNn0.DiiHZCDLXkZaJO0chUN-qLPlr_AZ21kzzhVmJyaaG_w
+
+###
+DELETE  http://localhost:3000/users/632f34ab585f0d270b25b83c/friends/632f30fe51d53fdaf800b3fe
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMmYzNGFiNTg1ZjBkMjcwYjI1YjgzYyIsImlhdCI6MTY2NDExMjIyNn0.DiiHZCDLXkZaJO0chUN-qLPlr_AZ21kzzhVmJyaaG_w
+
+###
+GET  http://localhost:3000/users/632f34ab585f0d270b25b83c/friends/requests/incomings
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMmYzNGFiNTg1ZjBkMjcwYjI1YjgzYyIsImlhdCI6MTY2NDExMjIyNn0.DiiHZCDLXkZaJO0chUN-qLPlr_AZ21kzzhVmJyaaG_w
+
+###
+GET  http://localhost:3000/users/632f34ab585f0d270b25b83c/friends/requests/outcomings
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMmYzNGFiNTg1ZjBkMjcwYjI1YjgzYyIsImlhdCI6MTY2NDExMjIyNn0.DiiHZCDLXkZaJO0chUN-qLPlr_AZ21kzzhVmJyaaG_w
+
+###
+POST  http://localhost:3000/users/632f34ab585f0d270b25b83c/friends/requests/outcomings
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMmYzNGFiNTg1ZjBkMjcwYjI1YjgzYyIsImlhdCI6MTY2NDExMjIyNn0.DiiHZCDLXkZaJO0chUN-qLPlr_AZ21kzzhVmJyaaG_w
+Content-Type: application/json
+
+{
+    "userId": "632f30fe51d53fdaf800b3fe"
+}
+
+###
+GET  http://localhost:3000/users/632f34ab585f0d270b25b83c/friends/requests/outcomings/6331d639ac1b7a0ba2686096
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMmYzNGFiNTg1ZjBkMjcwYjI1YjgzYyIsImlhdCI6MTY2NDExMjIyNn0.DiiHZCDLXkZaJO0chUN-qLPlr_AZ21kzzhVmJyaaG_w
+
+###
+GET  http://localhost:3000/users/632f34ab585f0d270b25b83c/friends/requests/incomings/6331d639ac1b7a0ba2686096
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMmYzNGFiNTg1ZjBkMjcwYjI1YjgzYyIsImlhdCI6MTY2NDExMjIyNn0.DiiHZCDLXkZaJO0chUN-qLPlr_AZ21kzzhVmJyaaG_w
+
+###
+PUT  http://localhost:3000/users/632f34ab585f0d270b25b83c/friends/requests/incomings/6331ec20832f6ebfa3763905
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMmYzNGFiNTg1ZjBkMjcwYjI1YjgzYyIsImlhdCI6MTY2NDExMjIyNn0.DiiHZCDLXkZaJO0chUN-qLPlr_AZ21kzzhVmJyaaG_w
+Content-Type: application/json
+
+{
+    "answer": "Confirm"
+}
+
+###
+POST  http://localhost:3000/users/632f30fe51d53fdaf800b3fe/friends/requests/outcomings
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMmYzMGZlNTFkNTNmZGFmODAwYjNmZSIsImlhdCI6MTY2NDIxMDU3Nn0.EJqz-x4IAkbjymlUGnziSfoSgMzJSCXWCyznIk2L5QM
+Content-Type: application/json
+
+{
+    "userId": "632f34ab585f0d270b25b83c"
+}
+
+###
+DELETE  http://localhost:3000/users/632f34ab585f0d270b25b83c/friends/requests/outcomings/6331d639ac1b7a0ba2686096
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMmYzNGFiNTg1ZjBkMjcwYjI1YjgzYyIsImlhdCI6MTY2NDExMjIyNn0.DiiHZCDLXkZaJO0chUN-qLPlr_AZ21kzzhVmJyaaG_w
+
+###
+GET  http://localhost:3000/users/632f30fe51d53fdaf800b3fe/friends/requests/outcomings/6331d639ac1b7a0ba2686096
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMmYzMGZlNTFkNTNmZGFmODAwYjNmZSIsImlhdCI6MTY2NDIxMDU3Nn0.EJqz-x4IAkbjymlUGnziSfoSgMzJSCXWCyznIk2L5QM
+
+###
+GET  http://localhost:3000/users/632f30fe51d53fdaf800b3fe/friends/requests/incomings/6331d639ac1b7a0ba2686096
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMmYzMGZlNTFkNTNmZGFmODAwYjNmZSIsImlhdCI6MTY2NDIxMDU3Nn0.EJqz-x4IAkbjymlUGnziSfoSgMzJSCXWCyznIk2L5QM

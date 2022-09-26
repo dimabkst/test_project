@@ -69,3 +69,9 @@ model ActiveAccessTokens {
   id    String @id @default(auto()) @map("_id") @db.ObjectId
   token String
 }
+
+model FriendsRequest {
+  id   String @id @default(auto()) @map("_id") @db.ObjectId
+  from String @db.ObjectId
+  to   String @db.ObjectId
+}

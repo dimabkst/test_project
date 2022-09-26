@@ -21,6 +21,37 @@ const userById = async (req, res, next, id) => {
     }
 };
 
+const friendsRequestById = async (req, res, next, id) => {
+    try {
+        const friendsRequest = await prisma.friendsRequest.findUnique({
+            where: {
+                id: id
+            }
+        });
+        if (!friendsRequest) {
+            throw createError.NotFound("Friends request with such Id not found");
+        }
+
+        if (req.originalUrl.includes('outcomings')) {
+            if (friendsRequest.from != req.profile.id) {
+                throw createError.NotFound("You don't have such outcoming friends request");
+            }
+        } else if (req.originalUrl.includes('incomings')) {
+            if (friendsRequest.to != req.profile.id) {
+                throw createError.NotFound("You don't have such incoming friends request");
+            }
+        } else {
+            // pass. That situation should be rewieved in future
+        }
+
+        req.friendsRequest = friendsRequest;
+
+        next();
+    } catch (err) {
+        next(err);
+    }
+};
+
 const emptyBodyCheck = (req, res, next) => {
     let emptyBody = true;
     const InReqBody = item => item in req.body;
@@ -44,5 +75,6 @@ const emptyBodyCheck = (req, res, next) => {
 
 module.exports = {
     userById,
+    friendsRequestById,
     emptyBodyCheck,
 };
