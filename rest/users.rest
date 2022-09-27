@@ -15,8 +15,8 @@ Content-Type: application/json
 }
 
 ###
-GET  http://localhost:3000/users/632f34ab585f0d270b25b83c
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMmYzNGFiNTg1ZjBkMjcwYjI1YjgzYyIsImlhdCI6MTY2NDExMjIyNn0.DiiHZCDLXkZaJO0chUN-qLPlr_AZ21kzzhVmJyaaG_w
+GET  http://localhost:3000/users/6332ee34d4a599102aea9761
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMzJlZTM0ZDRhNTk5MTAyYWVhOTc2MSIsImlhdCI6MTY2NDI4MjIxMX0.VG_v2J3QmU8rZBJGPE96bpCRbU9tkGqAs8EhucWHLjk
 
 ###
 PUT http://localhost:3000/users/632f34ab585f0d270b25b83c
@@ -29,5 +29,5 @@ Content-Type: application/json
 }
 
 ###
-DELETE  http://localhost:3000/users/6332ad9bce8971bc176efb45
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMzJhZDliY2U4OTcxYmMxNzZlZmI0NSIsImlhdCI6MTY2NDI2NTYyN30.JhSo3bYaHclPVLhZlDy3KEh9Ut60zxJhywTUPhxq-3U
+DELETE  http://localhost:3000/users/632f34ab585f0d270b25b83c
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMmYzNGFiNTg1ZjBkMjcwYjI1YjgzYyIsImlhdCI6MTY2NDExMjIyNn0.DiiHZCDLXkZaJO0chUN-qLPlr_AZ21kzzhVmJyaaG_w
