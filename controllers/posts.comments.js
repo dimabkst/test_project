@@ -50,6 +50,9 @@ const getCommentBelowPost = async (req, res, next) => {
         const comment = await prisma.comment.findUnique({
             where: {
                 id: req.comment.id
+            },
+            include: {
+                likes: true
             }
         });
 

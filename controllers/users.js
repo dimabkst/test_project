@@ -44,7 +44,14 @@ const createUser = async (req, res, next) => {
 
 const getUser = async (req, res, next) => {
     try {
-        const user = req.profile;
+        const user = await prisma.user.findUnique({
+            where: {
+                id: req.profile.id
+            },
+            include: {
+                posts: true
+            }
+        });
 
         res.status(200).json({
             status: 200,

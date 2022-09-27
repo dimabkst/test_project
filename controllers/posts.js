@@ -40,7 +40,15 @@ const createPost = async (req, res, next) => {
 
 const getPost = async (req, res, next) => {
     try {
-        const post = req.post;
+        const post = await prisma.post.findUnique({
+            where: {
+                id: req.post.id
+            },
+            include: {
+                likes: true,
+                comments: true
+            }
+        });
 
         res.status(200).json({
             status: 200,
