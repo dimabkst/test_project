@@ -52,29 +52,7 @@ const friendsRequestById = async (req, res, next, id) => {
     }
 };
 
-const emptyBodyCheck = (req, res, next) => {
-    let emptyBody = true;
-    const InReqBody = item => item in req.body;
-    const userFields = dmmf.datamodel.models.find(model => model.name === "User").fields
-        .filter(field => {
-            return field.kind == 'scalar' && !field.isId && !field.isReadOnly && !field.isList;
-        })
-        .map(field => field.name);
-    for (const item of userFields) {
-        if (emptyBody && InReqBody(item)) {
-            emptyBody = false;
-        }
-    }
-
-    if (emptyBody) {
-        return res.status(204).json({ message: "Empty Body" });
-    }
-
-    next();
-};
-
 module.exports = {
     userById,
     friendsRequestById,
-    emptyBodyCheck,
 };

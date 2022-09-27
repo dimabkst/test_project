@@ -57,9 +57,7 @@ const UserSchema = Joi.object({
         .required()
 }).or('email', 'username', 'phoneNumber');
 
-// Has the same fields as UserSchema and fields below are not required
-// anymore, so it is possible to update User and validate input 
-const UpdateUserSchema = UserSchema.keys({
+const UpdateUserSchema = Joi.object({
     firstName: Joi.string()
         .min(LIMITATIONS.firstName_min_len)
         .max(LIMITATIONS.firstName_max_len)
@@ -69,6 +67,31 @@ const UpdateUserSchema = UserSchema.keys({
         .min(LIMITATIONS.lastName_min_len)
         .max(LIMITATIONS.lastName_max_len)
         .trim(),
+
+    username: Joi.string()
+        .min(LIMITATIONS.username_min_len)
+        .max(LIMITATIONS.username_max_len)
+        .trim()
+        .pattern(/^[^_\s]\w+[^_\s]$/), // Ok: a_a, aa. Not Ok: _a, a_, a a and combinations.
+
+    email: Joi.string()
+        .email({ minDomainSegments: 2 })
+        .trim(),
+    // or use .pattern(new RegExp('^.+\@.+\..+$')),
+
+    phoneNumber: Joi.string()
+        .trim(),
+
+    city: Joi.string()
+        .min(LIMITATIONS.city_min_len)
+        .max(LIMITATIONS.city_max_len)
+        .trim(),
+
+    birthday: Joi.date()
+        .iso(),
+    // or use .pattern(new RegExp(/^\d{4}\-(0[1-9]|1[0-2])\-(0[1-9]|[1-2][0-9]|3[0-1])$/))
+
+    profilePicture: Joi.string(),
 
     password: Joi.string()
 });

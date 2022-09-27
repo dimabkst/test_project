@@ -17,7 +17,6 @@ router.route('/:userId')
     .get(authMidllewares.authenticationCheck,
         usersController.getUser)
     .put(authMidllewares.authenticationCheck, authMidllewares.authorizationCheck,
-        usersMiddlewares.emptyBodyCheck,
         joiUsersMiddlewares.userUpdateDataValidation,
         usersController.updateUser)
     .delete(authMidllewares.authenticationCheck, authMidllewares.authorizationCheck,

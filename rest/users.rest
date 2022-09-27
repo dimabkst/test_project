@@ -19,12 +19,11 @@ GET  http://localhost:3000/users/6332ee34d4a599102aea9761
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMzJlZTM0ZDRhNTk5MTAyYWVhOTc2MSIsImlhdCI6MTY2NDI4MjIxMX0.VG_v2J3QmU8rZBJGPE96bpCRbU9tkGqAs8EhucWHLjk
 
 ###
-PUT http://localhost:3000/users/632f34ab585f0d270b25b83c
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMmYzNGFiNTg1ZjBkMjcwYjI1YjgzYyIsImlhdCI6MTY2NDA5NzUxNX0.3W9HW_XMJ3Mx1hWMDr34sF4hXZaG6NEq1xdAse1GMwI
+PUT http://localhost:3000/users/6332ee34d4a599102aea9761
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMzJlZTM0ZDRhNTk5MTAyYWVhOTc2MSIsImlhdCI6MTY2NDI4MjIxMX0.VG_v2J3QmU8rZBJGPE96bpCRbU9tkGqAs8EhucWHLjk
 Content-Type: application/json
 
 {
-    "username": "ironman",
     "password": "iron"
 }
 
