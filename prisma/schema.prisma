@@ -16,6 +16,7 @@ model User {
   updatedAt       DateTime  @updatedAt
   posts           Post[]
   writtenComments Comment[]
+  leavedLikes     Like[]
 
   followers     User[]   @relation("UserFollows", fields: [followersIds], references: [id])
   followersIds  String[] @db.ObjectId
@@ -41,6 +42,9 @@ model User {
   password       String? // Actually hashed password
 }
 
+// It would be better to add Entity model and models like Post, Comment would have 1-1 relations with that model,
+// so Like would only have one realtion with Entity instead of post and comment that are now.
+// Then Comment would also have relation with Entity in replacement of post, because User can theorethicaly comment not only Posts.
 model Post {
   id        String    @id @default(auto()) @map("_id") @db.ObjectId
   createdAt DateTime  @default(now())
@@ -48,6 +52,7 @@ model Post {
   author    User      @relation(references: [id], fields: [authorId], onDelete: Cascade, onUpdate: Cascade)
   authorId  String    @db.ObjectId
   comments  Comment[]
+  likes     Like[]
 }
 
 model Comment {
@@ -58,6 +63,20 @@ model Comment {
   authorId  String   @db.ObjectId
   post      Post     @relation(references: [id], fields: [postId], onDelete: Cascade, onUpdate: Cascade)
   postId    String   @db.ObjectId
+  likes     Like[]
+}
+
+model Like {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  createdAt DateTime @default(now())
+  author    User     @relation(references: [id], fields: [authorId], onUpdate: Cascade)
+  authorId  String   @db.ObjectId
+
+  post   Post?   @relation(references: [id], fields: [postId], onDelete: Cascade, onUpdate: Cascade)
+  postId String? @db.ObjectId
+
+  comment   Comment? @relation(references: [id], fields: [commentId], onDelete: Cascade, onUpdate: Cascade)
+  commentId String?  @db.ObjectId
 }
 
 model user_unique_values_ids {

@@ -6,7 +6,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMzJlZTM0Z
 Content-Type: application/json
 
 {
-    "content": "1st best post on this site."
+    "content": "2nd best post on this site."
 }
 
 ###
@@ -28,4 +28,12 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMzJlZTM0Z
 
 ###
 GET http://localhost:3000/posts/users/6332ee34d4a599102aea9761
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMzJlZTM0ZDRhNTk5MTAyYWVhOTc2MSIsImlhdCI6MTY2NDI4MjE2NH0.IKb8FG76BllMSalidGnSpOU0KI_s4ZeeVocNHs_82wA
+
+###
+POST http://localhost:3000/posts/63330746062198b80903d956/likes
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMzJlZTM0ZDRhNTk5MTAyYWVhOTc2MSIsImlhdCI6MTY2NDI4MjE2NH0.IKb8FG76BllMSalidGnSpOU0KI_s4ZeeVocNHs_82wA
+
+###
+DELETE http://localhost:3000/posts/63330746062198b80903d956/likes
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMzJlZTM0ZDRhNTk5MTAyYWVhOTc2MSIsImlhdCI6MTY2NDI4MjE2NH0.IKb8FG76BllMSalidGnSpOU0KI_s4ZeeVocNHs_82wA

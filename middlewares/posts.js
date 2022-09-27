@@ -1,6 +1,8 @@
 const prisma = require('../prisma_client');
 const createError = require('http-errors');
 
+const postsCommentsMiddlewares = require('./posts.comments');
+
 const postById = async (req, res, next, id) => {
     try {
         let post = await prisma.post.findUnique({
@@ -20,7 +22,7 @@ const postById = async (req, res, next, id) => {
     }
 };
 
-const authenticatedUserIsAuthorCheck = async (req, res, next) => {
+const authenticatedUserIsPostAuthorCheck = async (req, res, next) => {
     try {
         if (req.post.authorId != req.auth.id) {
             throw createError.Forbidden("You can change only your posts");
@@ -33,5 +35,6 @@ const authenticatedUserIsAuthorCheck = async (req, res, next) => {
 
 module.exports = {
     postById,
-    authenticatedUserIsAuthorCheck,
+    authenticatedUserIsPostAuthorCheck,
+    ...postsCommentsMiddlewares,
 };

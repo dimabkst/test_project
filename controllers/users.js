@@ -1,7 +1,7 @@
 const prisma = require('../prisma_client');
 const jwt = require('../utils/jwt');
 const prismaHelpers = require('../helpers/prisma');
-const UsersFriendsController = require('./users.friends');
+const usersFriendsController = require('./users.friends');
 
 
 const listOfUsers = async (req, res, next) => {
@@ -127,5 +127,5 @@ module.exports = {
     getUser,
     updateUser,
     deleteUser,
-    ...UsersFriendsController,
+    ...usersFriendsController,
 };

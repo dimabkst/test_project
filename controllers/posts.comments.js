@@ -1,35 +1,42 @@
 const prisma = require('../prisma_client');
 const createError = require('http-errors');
 
-const PostsCommentsController = require('./posts.comments');
-
-const listOfPosts = async (req, res, next) => {
+const listOfCommentsBelowPost = async (req, res, next) => {
     try {
-        const posts = await prisma.post.findMany();
+        const comments = await prisma.comment.findMany({
+            where: {
+                postId: req.post.id
+            }
+        });
 
         res.status(200).json({
             status: 200,
-            data: { posts: posts }
+            data: { comments: comments }
         });
     } catch (err) {
         next(err);
     }
 };
 
-const createPost = async (req, res, next) => {
+const createCommentBelowPost = async (req, res, next) => {
     try {
-        const post = await prisma.post.create({
+        const comment = await prisma.comment.create({
             data: {
                 content: req.body.content,
                 author: {
                     connect: {
                         id: req.auth.id
                     }
+                },
+                post: {
+                    connect: {
+                        id: req.post.id
+                    }
                 }
             }
         });
 
-        res.status(201).location('/posts/' + post.id).json({
+        res.status(201).location(`/posts/${req.post.id}/comments/${comment.id}`).json({
             status: 201,
             data: null
         });
@@ -38,42 +45,57 @@ const createPost = async (req, res, next) => {
     }
 };
 
-const getPost = async (req, res, next) => {
+const getCommentBelowPost = async (req, res, next) => {
     try {
-        const post = req.post;
+        const comment = await prisma.comment.findUnique({
+            where: {
+                id: req.comment.id
+            }
+        });
 
         res.status(200).json({
             status: 200,
-            data: { post: post }
+            data: { comment: comment }
         });
     } catch (err) {
         next(err);
     }
 };
 
-const updatePost = async (req, res, next) => {
+const updateCommentBelowPost = async (req, res, next) => {
     try {
-        const post = await prisma.post.update({
+        const comment = await prisma.comment.update({
             where: {
-                id: req.post.id
+                id: req.comment.id
             },
             data: req.body
         });
 
         res.status(200).json({
             status: 200,
-            data: { post: post }
+            data: { comment: comment }
         });
     } catch (err) {
         next(err);
     }
 };
 
-const deletePost = async (req, res, next) => {
+const deleteCommentBelowPost = async (req, res, next) => {
     try {
-        const post = await prisma.post.delete({ // Not sure that this deletes relationship properly, but wasn't able to do it manually
+        const comment = await prisma.comment.update({
             where: {
-                id: req.post.id
+                id: req.comment.id
+            },
+            data: {
+                post: {
+                    disconnect: true
+                }
+            }
+        });
+
+        await prisma.comment.delete({
+            where: {
+                id: comment.id
             }
         });
 
@@ -86,38 +108,21 @@ const deletePost = async (req, res, next) => {
     }
 };
 
-const listOfPostsByAuthor = async (req, res, next) => {
-    try {
-        const posts = await prisma.post.findMany({
-            where: {
-                authorId: req.profile.id
-            }
-        });
-
-        res.status(200).json({
-            status: 200,
-            data: { posts: posts }
-        });
-    } catch (err) {
-        next(err);
-    }
-};
-
-const likePost = async (req, res, next) => {
+const likeCommentBelowPost = async (req, res, next) => {
     try {
         if (await prisma.like.findFirst({
             where: {
                 authorId: req.auth.id,
-                postId: req.post.id
+                commentId: req.comment.id
             }
         })) {
-            throw createError.BadRequest("You already have liked this post");
+            throw createError.BadRequest("You already have liked this comment");
         }
 
         const like = await prisma.like.create({
             data: {
                 authorId: req.auth.id,
-                postId: req.post.id
+                commentId: req.comment.id
             }
         });
 
@@ -130,16 +135,16 @@ const likePost = async (req, res, next) => {
     }
 };
 
-const deletePostLike = async (req, res, next) => {
+const deleteCommentBelowPostLike = async (req, res, next) => {
     try {
         let like = await prisma.like.findFirst({
             where: {
                 authorId: req.auth.id,
-                postId: req.post.id
+                commentId: req.comment.id
             }
         })
         if (!like) {
-            throw createError.BadRequest("You haven't liked this post");
+            throw createError.BadRequest("You haven't liked this comment");
         }
 
         like = await prisma.like.update({
@@ -147,7 +152,7 @@ const deletePostLike = async (req, res, next) => {
                 id: like.id
             },
             data: {
-                post: {
+                comment: {
                     disconnect: true
                 }
             }
@@ -169,13 +174,11 @@ const deletePostLike = async (req, res, next) => {
 };
 
 module.exports = {
-    listOfPosts,
-    createPost,
-    getPost,
-    updatePost,
-    deletePost,
-    listOfPostsByAuthor,
-    likePost,
-    deletePostLike,
-    ...PostsCommentsController
+    listOfCommentsBelowPost,
+    createCommentBelowPost,
+    getCommentBelowPost,
+    updateCommentBelowPost,
+    deleteCommentBelowPost,
+    likeCommentBelowPost,
+    deleteCommentBelowPostLike,
 };
