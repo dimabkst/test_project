@@ -33,7 +33,7 @@ GET  http://localhost:3000/users/632f34ab585f0d270b25b83c/friends/requests/incom
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMmYzNGFiNTg1ZjBkMjcwYjI1YjgzYyIsImlhdCI6MTY2NDExMjIyNn0.DiiHZCDLXkZaJO0chUN-qLPlr_AZ21kzzhVmJyaaG_w
 
 ###
-PUT  http://localhost:3000/users/632f34ab585f0d270b25b83c/friends/requests/incomings/6331ec20832f6ebfa3763905
+PUT  http://localhost:3000/users/632f34ab585f0d270b25b83c/friends/requests/incomings/6332adc3ce8971bc176efb47
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMmYzNGFiNTg1ZjBkMjcwYjI1YjgzYyIsImlhdCI6MTY2NDExMjIyNn0.DiiHZCDLXkZaJO0chUN-qLPlr_AZ21kzzhVmJyaaG_w
 Content-Type: application/json
 
@@ -42,8 +42,8 @@ Content-Type: application/json
 }
 
 ###
-POST  http://localhost:3000/users/632f30fe51d53fdaf800b3fe/friends/requests/outcomings
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMmYzMGZlNTFkNTNmZGFmODAwYjNmZSIsImlhdCI6MTY2NDIxMDU3Nn0.EJqz-x4IAkbjymlUGnziSfoSgMzJSCXWCyznIk2L5QM
+POST  http://localhost:3000/users/6332ad9bce8971bc176efb45/friends/requests/outcomings
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMzJhZDliY2U4OTcxYmMxNzZlZmI0NSIsImlhdCI6MTY2NDI2NTYyN30.JhSo3bYaHclPVLhZlDy3KEh9Ut60zxJhywTUPhxq-3U
 Content-Type: application/json
 
 {

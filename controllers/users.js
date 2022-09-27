@@ -75,11 +75,34 @@ const updateUser = async (req, res, next) => {
 
 const deleteUser = async (req, res, next) => {
     try {
-        const user = await prisma.user.delete({
+        for (let friendId of req.profile.friendsIds) {
+            await prisma.user.update({
+                where: {
+                    id: friendId
+                },
+                data: {
+                    friends: {
+                        disconnect: { id: req.profile.id }
+                    }
+                }
+            });
+        }
+
+        let user = await prisma.user.update({
             where: {
                 id: req.profile.id
             },
-            select: prismaHelpers.DEFAULT_SELECT
+            data: {
+                friends: { // Wanted to updateMany friends here but didn't work, so wrote code above
+                    set: []
+                }
+            }
+        });
+
+        user = await prisma.user.delete({
+            where: {
+                id: user.id
+            }
         });
 
         const accessToken = req.headers.authorization.split(' ')[1];
