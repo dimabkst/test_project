@@ -18,11 +18,6 @@ model User {
   writtenComments Comment[]
   leavedLikes     Like[]
 
-  followers     User[]   @relation("UserFollows", fields: [followersIds], references: [id])
-  followersIds  String[] @db.ObjectId
-  followings    User[]   @relation("UserFollows", fields: [followingsIds], references: [id])
-  followingsIds String[] @db.ObjectId
-
   friends            User[]   @relation("UserFriends", fields: [friendsIds], references: [id])
   friendsIds         String[] @db.ObjectId
   // friendsRelation only to store m-n relation
