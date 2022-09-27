@@ -14,7 +14,7 @@ const getUserFriends = async (req, res, next) => {
             },
             select: prismaHelpers.DEFAULT_SELECT
         });
-        userFriends = await prismaHelpers.excludeNotSetUsersUniqueFieldsAndPassword(userFriends);
+        userFriends = await prismaHelpers.excludeNotSetUsersUniqueFieldsAndFieldsNotToShow(userFriends);
 
         res.status(200).json({
             status: 200,

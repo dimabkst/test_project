@@ -1,5 +1,5 @@
 const prisma = require('../prisma_client');
-const { problematicUserUniqueFields } = require('../constants');
+const { problematicUserUniqueFields, userFieldsNotToShow } = require('../constants');
 
 const DEFAULT_SELECT = {
     id: true,
@@ -23,7 +23,7 @@ const exclude = (model, ...keys) => {
     return model;
 };
 
-const excludeNotSetUserUniqueFieldsAndPassword = async (user) => {
+const excludeNotSetUserUniqueFieldsAndFieldsNotToShow = async (user) => {
     const possibleNotSetFields = problematicUserUniqueFields;
     for (let field of possibleNotSetFields) {
         if (await prisma.user_unique_values_ids.findFirst({
@@ -34,14 +34,16 @@ const excludeNotSetUserUniqueFieldsAndPassword = async (user) => {
             delete user[field];
         }
     }
-    delete user['password'];
+    for (let field of userFieldsNotToShow) {
+        delete user[field];
+    }
     return user;
 }
 
-const excludeNotSetUsersUniqueFieldsAndPassword = async (users) => {
+const excludeNotSetUsersUniqueFieldsAndFieldsNotToShow = async (users) => {
     let tempUsers = [];
     for (let user of users) {
-        user = await excludeNotSetUserUniqueFieldsAndPassword(user);
+        user = await excludeNotSetUserUniqueFieldsAndFieldsNotToShow(user);
         tempUsers.push(user);
     }
     return tempUsers;
@@ -50,6 +52,6 @@ const excludeNotSetUsersUniqueFieldsAndPassword = async (users) => {
 module.exports = {
     DEFAULT_SELECT,
     exclude,
-    excludeNotSetUserUniqueFieldsAndPassword,
-    excludeNotSetUsersUniqueFieldsAndPassword
+    excludeNotSetUserUniqueFieldsAndFieldsNotToShow,
+    excludeNotSetUsersUniqueFieldsAndFieldsNotToShow
 };

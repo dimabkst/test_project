@@ -44,7 +44,7 @@ const searchUser = async (req, res, next) => {
             });
         }
 
-        users = await prismaHelpers.excludeNotSetUsersUniqueFieldsAndPassword(users);
+        users = await prismaHelpers.excludeNotSetUsersUniqueFieldsAndFieldsNotToShow(users);
 
         res.status(200).json({
             status: 200,

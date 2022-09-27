@@ -9,7 +9,7 @@ const listOfUsers = async (req, res, next) => {
         let users = await prisma.user.findMany({
             select: prismaHelpers.DEFAULT_SELECT
         });
-        users = await prismaHelpers.excludeNotSetUsersUniqueFieldsAndPassword(users);
+        users = await prismaHelpers.excludeNotSetUsersUniqueFieldsAndFieldsNotToShow(users);
 
         res.status(200).json({
             status: 200,
@@ -48,7 +48,7 @@ const getUser = async (req, res, next) => {
 
         res.status(200).json({
             status: 200,
-            data: { user: await prismaHelpers.excludeNotSetUserUniqueFieldsAndPassword(user) }
+            data: { user: await prismaHelpers.excludeNotSetUserUniqueFieldsAndFieldsNotToShow(user) }
         });
     } catch (err) {
         next(err);
@@ -66,7 +66,7 @@ const updateUser = async (req, res, next) => {
 
         res.status(200).json({
             status: 200,
-            data: { user: await prismaHelpers.excludeNotSetUserUniqueFieldsAndPassword(user) }
+            data: { user: await prismaHelpers.excludeNotSetUserUniqueFieldsAndFieldsNotToShow(user) }
         });
     } catch (err) {
         next(err);
