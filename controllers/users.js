@@ -120,6 +120,15 @@ const deleteUser = async (req, res, next) => {
             }
         });
 
+        await prisma.friendsRequest.deleteMany({
+            where: {
+                OR: [
+                    { from: user.id },
+                    { to: user.id }
+                ]
+            }
+        });
+
         res.status(200).json({
             status: 200,
             data: null

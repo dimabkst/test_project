@@ -5,7 +5,7 @@ const { problematicUserUniqueFields } = require('../../constants');
 
 const BCRYPT_SALT = 10;
 
-const passwordHasingMiddleware = async (params, next) => {
+const passwordHashingMiddleware = async (params, next) => {
     try {
         if ((params.action == 'create' || params.action == 'update') // Can add here Many actions but it doesn't make sense yet
             && params.model == 'User' && params.args.data.password) {
@@ -80,7 +80,6 @@ const userUpdateHandlePlugedUniqueValuesMiddleware = async (params, next) => {
 const userDeleteHandlePlugedUniqueValuesMiddleware = async (params, next) => {
     try {
         if ((params.action == 'delete' || params.action == 'deleteMany') && params.model == 'User') {
-            console.log(params);
             const possibleNullUniqueFields = problematicUserUniqueFields;
             const deletedUsers = await prisma.user.findMany({
                 where: params.args.where
@@ -111,7 +110,7 @@ const userDeleteHandlePlugedUniqueValuesMiddleware = async (params, next) => {
 };
 
 module.exports = {
-    passwordHasingMiddleware,
+    passwordHashingMiddleware,
     userCreationHandleNullUniqueValuesMiddleware,
     userUpdateHandlePlugedUniqueValuesMiddleware,
     userDeleteHandlePlugedUniqueValuesMiddleware,

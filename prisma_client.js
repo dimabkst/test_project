@@ -1,5 +1,5 @@
 const { PrismaClient } = require('@prisma/client');
-const { passwordHasingMiddleware,
+const { passwordHashingMiddleware,
     userCreationHandleNullUniqueValuesMiddleware,
     userUpdateHandlePlugedUniqueValuesMiddleware,
     userDeleteHandlePlugedUniqueValuesMiddleware,
@@ -11,7 +11,7 @@ const { passwordHasingMiddleware,
 */
 let prisma = new PrismaClient();
 
-prisma.$use(passwordHasingMiddleware);
+prisma.$use(passwordHashingMiddleware);
 prisma.$use(userCreationHandleNullUniqueValuesMiddleware);
 prisma.$use(userUpdateHandlePlugedUniqueValuesMiddleware);
 prisma.$use(userDeleteHandlePlugedUniqueValuesMiddleware);

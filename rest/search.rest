@@ -1,7 +1,7 @@
 GET http://localhost:3000/searchs/users
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMzQ1NWE3ZDIwZjNkMDlkOGNkMjkyMyIsImlhdCI6MTY2NDM3NDE4NH0.E3OX0eISAWXQv0efZZDxd_qARS-bsuhceyle8uAWXa4
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMzQ5YjY0M2VhY2I5YjcxMjBhNGJlYSIsImlhdCI6MTY2NDM5MjAzN30.SxFx7DVT9VnZm5fG4x80TTrwe9QBUjPTVD2Vh8C0yXg
 Content-Type: application/json
 
 {
-    "data": "JanE smIth"
+    "data": "бобиК"
 }

@@ -29,19 +29,20 @@ Content-Type: application/json
 }
 
 ###
-GET  http://localhost:3000/users/6332ee34d4a599102aea9761
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMzJlZTM0ZDRhNTk5MTAyYWVhOTc2MSIsImlhdCI6MTY2NDI4MjIxMX0.VG_v2J3QmU8rZBJGPE96bpCRbU9tkGqAs8EhucWHLjk
+GET  http://localhost:3000/users/63349b533eacb9b7120a4be7
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMzQ5YjY0M2VhY2I5YjcxMjBhNGJlYSIsImlhdCI6MTY2NDM5MjAzN30.SxFx7DVT9VnZm5fG4x80TTrwe9QBUjPTVD2Vh8C0yXg
 
 ###
-PUT http://localhost:3000/users/633424fb5d2c3363465acd5f
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMzQyNGZiNWQyYzMzNjM0NjVhY2Q1ZiIsImlhdCI6MTY2NDM2MTcyM30.HXHUTsbxgfq1YPdTJJsmvrBcrbrOyFzd6MPVpXEYmk0
+PUT http://localhost:3000/users/63349b533eacb9b7120a4be7
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMzQ5YjUzM2VhY2I5YjcxMjBhNGJlNyIsImlhdCI6MTY2NDM5MjY0OX0.9xxXxFCxeIRjONuFXfhkjRYB_qX8jO4XBmKktPucnG4
 Content-Type: application/json
 
 {
-    "password": "JJJ",
-    "phoneNumber": "090990"
+    "password": "iron",
+    "phoneNumber": "090990",
+    "googleId": "2222"
 }
 
 ###
-DELETE  http://localhost:3000/users/633424fb5d2c3363465acd5f
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMzQyNGZiNWQyYzMzNjM0NjVhY2Q1ZiIsImlhdCI6MTY2NDM2MTcyM30.HXHUTsbxgfq1YPdTJJsmvrBcrbrOyFzd6MPVpXEYmk0
+DELETE  http://localhost:3000/users/63349b753eacb9b7120a4bed
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMzQ5Yjc1M2VhY2I5YjcxMjBhNGJlZCIsImlhdCI6MTY2NDM5MjA1NH0.s4ITaHrQG3j5l45N8QgFpvbuLDnD283mATnTxL4CTic

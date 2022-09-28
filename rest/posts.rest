@@ -2,42 +2,42 @@ GET http://localhost:3000/posts
 
 ###
 POST http://localhost:3000/posts
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMzJlZTM0ZDRhNTk5MTAyYWVhOTc2MSIsImlhdCI6MTY2NDI4MjE2NH0.IKb8FG76BllMSalidGnSpOU0KI_s4ZeeVocNHs_82wA
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMzRhMjMxMmMzY2VhYjgxNGI1YTc3MSIsImlhdCI6MTY2NDM5Mzc3N30.7Lvp5AdU4sXG5VGM13rr0T9N8yjkSze9LtQhK2HmStg
 Content-Type: application/json
 
 {
-    "content": "2nd best post on this site."
+    "content": "Not Tony 3 but not not Tony 1"
 }
 
 ###
-GET http://localhost:3000/posts/63330746062198b80903d956
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMzJlZTM0ZDRhNTk5MTAyYWVhOTc2MSIsImlhdCI6MTY2NDI4MjE2NH0.IKb8FG76BllMSalidGnSpOU0KI_s4ZeeVocNHs_82wA
+GET http://localhost:3000/posts/6334a49e2c3ceab814b5a778
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMzQ5YjUzM2VhY2I5YjcxMjBhNGJlNyIsImlhdCI6MTY2NDM5MjY0OX0.9xxXxFCxeIRjONuFXfhkjRYB_qX8jO4XBmKktPucnG4
 
 ###
-PUT http://localhost:3000/posts/6332f020ecc591fe10f26d90
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMzJlZTM0ZDRhNTk5MTAyYWVhOTc2MSIsImlhdCI6MTY2NDI4MjE2NH0.IKb8FG76BllMSalidGnSpOU0KI_s4ZeeVocNHs_82wA
+PUT http://localhost:3000/posts/6334a2732c3ceab814b5a773
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMzQ5YjUzM2VhY2I5YjcxMjBhNGJlNyIsImlhdCI6MTY2NDM5MjY0OX0.9xxXxFCxeIRjONuFXfhkjRYB_qX8jO4XBmKktPucnG4
 Content-Type: application/json
 
 {
-    "content": "1st best post on this site."
+    "content": "Tony 1 changed"
 }
 
 ###
-DELETE http://localhost:3000/posts/6332f61887344d6098620373
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMzJlZTM0ZDRhNTk5MTAyYWVhOTc2MSIsImlhdCI6MTY2NDI4MjE2NH0.IKb8FG76BllMSalidGnSpOU0KI_s4ZeeVocNHs_82wA
+DELETE http://localhost:3000/posts/6334a2822c3ceab814b5a775
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMzQ5YjUzM2VhY2I5YjcxMjBhNGJlNyIsImlhdCI6MTY2NDM5MjY0OX0.9xxXxFCxeIRjONuFXfhkjRYB_qX8jO4XBmKktPucnG4
 
 ###
-GET http://localhost:3000/posts/users/6332ee34d4a599102aea9761
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMzJlZTM0ZDRhNTk5MTAyYWVhOTc2MSIsImlhdCI6MTY2NDI4MjE2NH0.IKb8FG76BllMSalidGnSpOU0KI_s4ZeeVocNHs_82wA
+GET http://localhost:3000/posts/users/63349b643eacb9b7120a4bea
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMzQ5YjUzM2VhY2I5YjcxMjBhNGJlNyIsImlhdCI6MTY2NDM5MjY0OX0.9xxXxFCxeIRjONuFXfhkjRYB_qX8jO4XBmKktPucnG4
 
 ###
-POST http://localhost:3000/posts/63330746062198b80903d956/likes
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMzJlZTM0ZDRhNTk5MTAyYWVhOTc2MSIsImlhdCI6MTY2NDI4MjE2NH0.IKb8FG76BllMSalidGnSpOU0KI_s4ZeeVocNHs_82wA
+POST http://localhost:3000/posts/6334a49e2c3ceab814b5a778/likes
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMzQ5YjUzM2VhY2I5YjcxMjBhNGJlNyIsImlhdCI6MTY2NDM5MjY0OX0.9xxXxFCxeIRjONuFXfhkjRYB_qX8jO4XBmKktPucnG4
 
 ###
-DELETE http://localhost:3000/posts/63330746062198b80903d956/likes
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMzJlZTM0ZDRhNTk5MTAyYWVhOTc2MSIsImlhdCI6MTY2NDI4MjE2NH0.IKb8FG76BllMSalidGnSpOU0KI_s4ZeeVocNHs_82wA
+DELETE http://localhost:3000/posts/6334a49e2c3ceab814b5a778/likes
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMzQ5YjUzM2VhY2I5YjcxMjBhNGJlNyIsImlhdCI6MTY2NDM5MjY0OX0.9xxXxFCxeIRjONuFXfhkjRYB_qX8jO4XBmKktPucnG4
 
 ###
-GET http://localhost:3000/posts/feed/633455a7d20f3d09d8cd2923?page=2&limit=5
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMzQ1NWE3ZDIwZjNkMDlkOGNkMjkyMyIsImlhdCI6MTY2NDM3NDE4NH0.E3OX0eISAWXQv0efZZDxd_qARS-bsuhceyle8uAWXa4
+GET http://localhost:3000/posts/feed/63349b533eacb9b7120a4be7?page=2&limit=3
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMzQ5YjUzM2VhY2I5YjcxMjBhNGJlNyIsImlhdCI6MTY2NDM5MjY0OX0.9xxXxFCxeIRjONuFXfhkjRYB_qX8jO4XBmKktPucnG4

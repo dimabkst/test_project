@@ -85,20 +85,9 @@ const updateCommentBelowPost = async (req, res, next) => {
 
 const deleteCommentBelowPost = async (req, res, next) => {
     try {
-        const comment = await prisma.comment.update({
+        const comment = await prisma.comment.delete({
             where: {
                 id: req.comment.id
-            },
-            data: {
-                post: {
-                    disconnect: true
-                }
-            }
-        });
-
-        await prisma.comment.delete({
-            where: {
-                id: comment.id
             }
         });
 

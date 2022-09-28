@@ -1,9 +1,9 @@
-GET http://localhost:3000/posts/63330746062198b80903d956/comments
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMzJlZTM0ZDRhNTk5MTAyYWVhOTc2MSIsImlhdCI6MTY2NDI4MjE2NH0.IKb8FG76BllMSalidGnSpOU0KI_s4ZeeVocNHs_82wA
+GET http://localhost:3000/posts/6334a49e2c3ceab814b5a778/comments
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMzQ5YjUzM2VhY2I5YjcxMjBhNGJlNyIsImlhdCI6MTY2NDM5MjY0OX0.9xxXxFCxeIRjONuFXfhkjRYB_qX8jO4XBmKktPucnG4
 
 ###
-POST http://localhost:3000/posts/633333b6c6731fc70ebdf944/comments
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMzJlZTM0ZDRhNTk5MTAyYWVhOTc2MSIsImlhdCI6MTY2NDI4MjE2NH0.IKb8FG76BllMSalidGnSpOU0KI_s4ZeeVocNHs_82wA
+POST http://localhost:3000/posts/6334a49e2c3ceab814b5a778/comments
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMzQ5YjUzM2VhY2I5YjcxMjBhNGJlNyIsImlhdCI6MTY2NDM5MjY0OX0.9xxXxFCxeIRjONuFXfhkjRYB_qX8jO4XBmKktPucnG4
 Content-Type: application/json
 
 {
@@ -11,22 +11,27 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:3000/posts/63330746062198b80903d956/comments/633330b1e21cab6d99629152
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMzJlZTM0ZDRhNTk5MTAyYWVhOTc2MSIsImlhdCI6MTY2NDI4MjE2NH0.IKb8FG76BllMSalidGnSpOU0KI_s4ZeeVocNHs_82wA
+GET http://localhost:3000/posts/6334a49e2c3ceab814b5a778/comments/6334b3ad07913c9840daaaa9
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMzQ5YjUzM2VhY2I5YjcxMjBhNGJlNyIsImlhdCI6MTY2NDM5MjY0OX0.9xxXxFCxeIRjONuFXfhkjRYB_qX8jO4XBmKktPucnG4
 
 ###
-PUT http://localhost:3000/posts/63330746062198b80903d956/comments/633330b1e21cab6d99629152
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMmYzMGZlNTFkNTNmZGFmODAwYjNmZSIsImlhdCI6MTY2NDIxMDU3Nn0.EJqz-x4IAkbjymlUGnziSfoSgMzJSCXWCyznIk2L5QM
+PUT http://localhost:3000/posts/6334a49e2c3ceab814b5a778/comments/6334b3ad07913c9840daaaa9
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMzQ5YjUzM2VhY2I5YjcxMjBhNGJlNyIsImlhdCI6MTY2NDM5MjY0OX0.9xxXxFCxeIRjONuFXfhkjRYB_qX8jO4XBmKktPucnG4
 Content-Type: application/json
 
 {
-    "content": "Comment of 2nd best post on this site."
+    "content": "Comment of 2nd best post on this site changedd."
 }
 
 ###
-POST  http://localhost:3000/posts/63330746062198b80903d956/comments/633330b1e21cab6d99629152/likes
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMzJlZTM0ZDRhNTk5MTAyYWVhOTc2MSIsImlhdCI6MTY2NDI4MjE2NH0.IKb8FG76BllMSalidGnSpOU0KI_s4ZeeVocNHs_82wA
+DELETE  http://localhost:3000/posts/6334a49e2c3ceab814b5a778/comments/6334b3ad07913c9840daaaa9
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMzQ5YjUzM2VhY2I5YjcxMjBhNGJlNyIsImlhdCI6MTY2NDM5MjY0OX0.9xxXxFCxeIRjONuFXfhkjRYB_qX8jO4XBmKktPucnG4
+
 
 ###
-DELETE  http://localhost:3000/posts/63330746062198b80903d956/comments/633330b1e21cab6d99629152/likes
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMzJlZTM0ZDRhNTk5MTAyYWVhOTc2MSIsImlhdCI6MTY2NDI4MjE2NH0.IKb8FG76BllMSalidGnSpOU0KI_s4ZeeVocNHs_82wA
+POST  http://localhost:3000/posts/6334a49e2c3ceab814b5a778/comments/6334b3ad07913c9840daaaa9/likes
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMzQ5YjUzM2VhY2I5YjcxMjBhNGJlNyIsImlhdCI6MTY2NDM5MjY0OX0.9xxXxFCxeIRjONuFXfhkjRYB_qX8jO4XBmKktPucnG4
+
+###
+DELETE  http://localhost:3000/posts/6334a49e2c3ceab814b5a778/comments/6334b3ad07913c9840daaaa9/likes
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMzQ5YjUzM2VhY2I5YjcxMjBhNGJlNyIsImlhdCI6MTY2NDM5MjY0OX0.9xxXxFCxeIRjONuFXfhkjRYB_qX8jO4XBmKktPucnG4

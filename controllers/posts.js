@@ -182,7 +182,6 @@ const feed = async (req, res, next) => {
         const pageNumber = parseInt(req.query.page);
 
         const limit = (req.query.limit) ? parseInt(req.query.limit) : PAGE_LIMIT;
-        console.log('a');
         const feed = await prisma.post.findMany({
             where: {
                 author: {
@@ -200,10 +199,14 @@ const feed = async (req, res, next) => {
             take: limit
         });
 
+        if (!feed.length && pageNumber > 1) {
+            throw createError.BadRequest("There is no such page");
+        }
+
         res.status(200).json({
             status: 200,
             data: { feed: feed }
-        })
+        });
     } catch (err) {
         next(err);
     }
