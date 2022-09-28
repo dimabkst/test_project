@@ -33,14 +33,15 @@ GET  http://localhost:3000/users/6332ee34d4a599102aea9761
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMzJlZTM0ZDRhNTk5MTAyYWVhOTc2MSIsImlhdCI6MTY2NDI4MjIxMX0.VG_v2J3QmU8rZBJGPE96bpCRbU9tkGqAs8EhucWHLjk
 
 ###
-PUT http://localhost:3000/users/6332ee34d4a599102aea9761
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMzJlZTM0ZDRhNTk5MTAyYWVhOTc2MSIsImlhdCI6MTY2NDI4MjIxMX0.VG_v2J3QmU8rZBJGPE96bpCRbU9tkGqAs8EhucWHLjk
+PUT http://localhost:3000/users/633424fb5d2c3363465acd5f
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMzQyNGZiNWQyYzMzNjM0NjVhY2Q1ZiIsImlhdCI6MTY2NDM2MTcyM30.HXHUTsbxgfq1YPdTJJsmvrBcrbrOyFzd6MPVpXEYmk0
 Content-Type: application/json
 
 {
-    "password": "iron"
+    "password": "JJJ",
+    "phoneNumber": "090990"
 }
 
 ###
-DELETE  http://localhost:3000/users/63341e3ac67e7cb2cc64aa5b
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMzQxZTNhYzY3ZTdjYjJjYzY0YWE1YiIsImlhdCI6MTY2NDM2MDIwNH0.EvydaO_8Zx6_YEGLPVZoYx6IFvTesFPVL3e4MtSQ99Q
+DELETE  http://localhost:3000/users/633424fb5d2c3363465acd5f
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMzQyNGZiNWQyYzMzNjM0NjVhY2Q1ZiIsImlhdCI6MTY2NDM2MTcyM30.HXHUTsbxgfq1YPdTJJsmvrBcrbrOyFzd6MPVpXEYmk0

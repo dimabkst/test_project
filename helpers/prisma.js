@@ -26,7 +26,7 @@ const exclude = (model, ...keys) => {
 const excludeNotSetUserUniqueFieldsAndFieldsNotToShow = async (user) => {
     const possibleNotSetFields = problematicUserUniqueFields;
     for (let field of possibleNotSetFields) {
-        if (await prisma.user_unique_values_ids.findFirst({
+        if (await prisma.userUniqueValuesIds.findFirst({
             where: {
                 id: user[field]
             }

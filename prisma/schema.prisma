@@ -33,7 +33,7 @@ model User {
   googleId       String?   @unique
   city           String?
   birthday       DateTime?
-  profilePicture String? // Needs to be reviewed in future
+  profilePicture String?
   password       String? // Actually hashed password
 }
 
@@ -74,11 +74,6 @@ model Like {
   commentId String?  @db.ObjectId
 }
 
-model user_unique_values_ids {
-  id    String @id @default(cuid()) @map("_id")
-  field String
-}
-
 model ActiveAccessTokens {
   id     String @id @default(auto()) @map("_id") @db.ObjectId
   token  String
@@ -89,4 +84,10 @@ model FriendsRequest {
   id   String @id @default(auto()) @map("_id") @db.ObjectId
   from String @db.ObjectId
   to   String @db.ObjectId
+}
+
+// auxiliary model for User model proper working
+model UserUniqueValuesIds {
+  id    String @id @default(cuid()) @map("_id")
+  field String
 }

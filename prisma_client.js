@@ -1,5 +1,9 @@
 const { PrismaClient } = require('@prisma/client');
-const { passwordMiddleware, notNullUniqueValuesMiddleware } = require('./middlewares/prisma/users');
+const { passwordHasingMiddleware,
+    userCreationHandleNullUniqueValuesMiddleware,
+    userUpdateHandlePlugedUniqueValuesMiddleware,
+    userDeleteHandlePlugedUniqueValuesMiddleware,
+} = require('./middlewares/prisma/users');
 
 /* 
     This file is created to use only one instance of Prisma client in code as described in:
@@ -7,7 +11,9 @@ const { passwordMiddleware, notNullUniqueValuesMiddleware } = require('./middlew
 */
 let prisma = new PrismaClient();
 
-prisma.$use(passwordMiddleware);
-prisma.$use(notNullUniqueValuesMiddleware);
+prisma.$use(passwordHasingMiddleware);
+prisma.$use(userCreationHandleNullUniqueValuesMiddleware);
+prisma.$use(userUpdateHandlePlugedUniqueValuesMiddleware);
+prisma.$use(userDeleteHandlePlugedUniqueValuesMiddleware);
 
 module.exports = prisma;
