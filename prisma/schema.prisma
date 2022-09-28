@@ -80,8 +80,9 @@ model user_unique_values_ids {
 }
 
 model ActiveAccessTokens {
-  id    String @id @default(auto()) @map("_id") @db.ObjectId
-  token String
+  id     String @id @default(auto()) @map("_id") @db.ObjectId
+  token  String
+  userId String @db.ObjectId
 }
 
 model FriendsRequest {

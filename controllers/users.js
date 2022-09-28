@@ -29,7 +29,8 @@ const createUser = async (req, res, next) => {
         const accessToken = await jwt.signAccessToken(user);
         await prisma.activeAccessTokens.create({
             data: {
-                token: accessToken
+                token: accessToken,
+                userId: user.id
             }
         });
 

@@ -21,4 +21,4 @@ Content-Type: application/json
 
 ###
 DELETE http://localhost:3000/auth/logout
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMmYzNGFiNTg1ZjBkMjcwYjI1YjgzYyIsImlhdCI6MTY2NDA5NzUxNX0.3W9HW_XMJ3Mx1hWMDr34sF4hXZaG6NEq1xdAse1GMwI
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMzQxZTNhYzY3ZTdjYjJjYzY0YWE1YiIsImlhdCI6MTY2NDM2MDAyNX0.YU9X3QkQOF6EaIowmqFD5HGAz92Wk7RllWsKUCF2Dao

@@ -37,10 +37,17 @@ const login = async (req, res, next) => {
             }
         }
 
+        await prisma.activeAccessTokens.deleteMany({ // So there would be no more than 1 accessToken at the same time of User in db
+            where: {
+                userId: user.id
+            }
+        });
+
         const accessToken = await jwt.signAccessToken(user);
         await prisma.activeAccessTokens.create({
             data: {
-                token: accessToken
+                token: accessToken,
+                userId: user.id
             }
         });
 
