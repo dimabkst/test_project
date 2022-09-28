@@ -9,7 +9,6 @@ const usersRouter = require('./routes/users');
 const authRouter = require('./routes/auth');
 const searchsRouter = require('./routes/searchs');
 const postsRouter = require('./routes/posts');
-const { restart } = require('nodemon');
 
 const app = express();
 
