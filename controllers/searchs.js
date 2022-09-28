@@ -11,10 +11,12 @@ const searchUser = async (req, res, next) => {
             users = await prisma.user.findMany({
                 where: {
                     firstName: {
-                        contains: firstName
+                        contains: firstName,
+                        mode: 'insensitive'
                     },
                     lastName: {
-                        contains: lastName
+                        contains: lastName,
+                        mode: 'insensitive'
                     }
                 },
                 select: prismaHelpers.DEFAULT_SELECT
@@ -24,17 +26,20 @@ const searchUser = async (req, res, next) => {
                 where: {
                     OR: [{
                         username: {
-                            contains: data
+                            contains: data,
+                            mode: 'insensitive'
                         }
                     },
                     {
                         firstName: {
-                            contains: data
+                            contains: data,
+                            mode: 'insensitive'
                         }
                     },
                     {
                         lastName: {
-                            contains: data
+                            contains: data,
+                            mode: 'insensitive'
                         }
                     }
                     ]
