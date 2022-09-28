@@ -176,6 +176,39 @@ const deletePostLike = async (req, res, next) => {
     }
 };
 
+const feed = async (req, res, next) => {
+    try {
+        const PAGE_LIMIT = 10;
+        const pageNumber = parseInt(req.query.page);
+
+        const limit = (req.query.limit) ? parseInt(req.query.limit) : PAGE_LIMIT;
+        console.log('a');
+        const feed = await prisma.post.findMany({
+            where: {
+                author: {
+                    friends: {
+                        some: {
+                            id: req.auth.id
+                        }
+                    }
+                }
+            },
+            orderBy: {
+                createdAt: 'desc'
+            },
+            skip: (pageNumber - 1) * limit,
+            take: limit
+        });
+
+        res.status(200).json({
+            status: 200,
+            data: { feed: feed }
+        })
+    } catch (err) {
+        next(err);
+    }
+}
+
 module.exports = {
     listOfPosts,
     createPost,
@@ -185,5 +218,6 @@ module.exports = {
     listOfPostsByAuthor,
     likePost,
     deletePostLike,
+    feed,
     ...PostsCommentsController
 };

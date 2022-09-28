@@ -33,8 +33,34 @@ const authenticatedUserIsPostAuthorCheck = async (req, res, next) => {
     }
 };
 
+const feedQueryParametersValidation = async (req, res, next) => {
+    try {
+        const pageParameter = req.query.page;
+        if (!pageParameter) {
+            throw createError.BadRequest("Query parameter - page, is required");
+        }
+
+        const postiveIntegerRegex = new RegExp(/^[1-9][0-9]*$/);
+        if (!postiveIntegerRegex.test(pageParameter)) {
+            throw createError.BadRequest("Page query parameter should be integer greater than zero");
+        }
+
+        const limitParameter = req.query.limit;
+        if (limitParameter) {
+            if (!postiveIntegerRegex.test(limitParameter)) {
+                throw createError.BadRequest("Page query limit should be integer greater than zero");
+            }
+        }
+
+        next();
+    } catch (err) {
+        next(err);
+    }
+}
+
 module.exports = {
     postById,
     authenticatedUserIsPostAuthorCheck,
+    feedQueryParametersValidation,
     ...postsCommentsMiddlewares,
 };

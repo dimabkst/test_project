@@ -38,9 +38,10 @@ router.route('/:postId/likes')
     .delete(authMidllewares.authenticationCheck,
         postsController.deletePostLike); // User can can leave only 1 like below the Post so there is no need to do /:postId/likes/:likeId which would make everything harder 
 
-// router.route('/feed/:userId')
-//     .get(authMidllewares.authenticationCheck, authMidllewares.authorizationCheck,
-//         postsController.feed);
+router.route('/feed/:userId') // has required query parameter page and optional one - limit
+    .get(authMidllewares.authenticationCheck, authMidllewares.authorizationCheck,
+        postsMiddlewares.feedQueryParametersValidation,
+        postsController.feed);
 
 router.use('/:postId/comments', postCommentsRouter);
 

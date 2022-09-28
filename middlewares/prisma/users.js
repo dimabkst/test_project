@@ -34,7 +34,7 @@ const userCreationHandleNullUniqueValuesMiddleware = async (params, next) => {
                     userOrUsersData[field] = fieldPlug.id;
                 }
             }
-            params.args.data = user;
+            params.args.data = userOrUsersData;
         }
         return await next(params);
     } catch (err) {

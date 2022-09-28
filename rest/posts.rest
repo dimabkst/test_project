@@ -37,3 +37,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMzJlZTM0Z
 ###
 DELETE http://localhost:3000/posts/63330746062198b80903d956/likes
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMzJlZTM0ZDRhNTk5MTAyYWVhOTc2MSIsImlhdCI6MTY2NDI4MjE2NH0.IKb8FG76BllMSalidGnSpOU0KI_s4ZeeVocNHs_82wA
+
+###
+GET http://localhost:3000/posts/feed/633455a7d20f3d09d8cd2923?page=2&limit=5
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMzQ1NWE3ZDIwZjNkMDlkOGNkMjkyMyIsImlhdCI6MTY2NDM3NDE4NH0.E3OX0eISAWXQv0efZZDxd_qARS-bsuhceyle8uAWXa4
