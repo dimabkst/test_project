@@ -33,6 +33,5 @@ router.route('/:commentId/likes')
         postsController.deleteCommentBelowPostLike);
 
 router.param("commentId", postsMiddlewares.commentById);
-router.param('postId', postsMiddlewares.postById);
 
 module.exports = router;
