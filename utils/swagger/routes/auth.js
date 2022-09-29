@@ -17,8 +17,6 @@
  *               - lastName
  *               - password
  *             properties:
- *               id:
- *                 type: string
  *               firstName:
  *                 type: string
  *                 description: First name of the user

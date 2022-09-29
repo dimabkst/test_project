@@ -7,7 +7,7 @@ const prisma = require('../prisma_client');
 passport.use(new FacebookStrategy({
     clientID: config.fb_app_id,
     clientSecret: config.fb_app_secret,
-    callbackURL: `http://localhost:${config.port}/auth/login/facebook`
+    callbackURL: (config.env == 'development') ? `http://localhost:${config.port}/auth/login/facebook` : config.heroku_url + 'auth/login/facebook'
 },
     async function (accessToken, refreshToken, profile, cb) {
         try {
@@ -36,7 +36,7 @@ passport.use(new FacebookStrategy({
 passport.use(new GoogleStrategy({
     clientID: config.google_app_id,
     clientSecret: config.google_app_secret,
-    callbackURL: `http://localhost:${config.port}/auth/login/google`,
+    callbackURL: (config.env == 'development') ? `http://localhost:${config.port}/auth/login/google` : config.heroku_url + 'auth/login/google',
     scope: ['profile']
 },
     async function (issuer, profile, cb) {
