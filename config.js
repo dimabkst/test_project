@@ -8,7 +8,8 @@ const config = {
     fb_app_id: process.env.FB_APP_ID,
     fb_app_secret: process.env.FB_APP_SECRET,
     google_app_id: process.env.GOOGLE_APP_ID,
-    google_app_secret: process.env.GOOGLE_APP_SECRET
+    google_app_secret: process.env.GOOGLE_APP_SECRET,
+    heroku_url: process.env.HEROKU_URL,
 }
 
 module.exports = config;

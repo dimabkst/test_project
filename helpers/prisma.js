@@ -7,6 +7,7 @@ const DEFAULT_SELECT = {
     lastName: true,
     username: true,
     email: true,
+    phoneNumber: true,
     facebookId: true,
     googleId: true,
     city: true,

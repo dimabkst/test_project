@@ -1,8 +1,12 @@
 const prisma = require('../prisma_client');
 const prismaHelpers = require('../helpers/prisma');
+const createError = require('http-errors');
 
 const searchUser = async (req, res, next) => {
     try {
+        if (!req.body.data) {
+            req.body.data = "";
+        }
         const data = req.body.data.trim();
         const searchByFullName = data.split(' ').length == 2;
         let users;

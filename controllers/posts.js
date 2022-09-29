@@ -79,7 +79,7 @@ const updatePost = async (req, res, next) => {
 
 const deletePost = async (req, res, next) => {
     try {
-        const post = await prisma.post.delete({ // Not sure that this deletes relationship properly, but wasn't able to do it manually
+        const post = await prisma.post.delete({
             where: {
                 id: req.post.id
             }

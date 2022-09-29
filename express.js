@@ -3,6 +3,7 @@ const config = require('./config');
 const createError = require('http-errors');
 const session = require('express-session');
 const passport = require('./utils/passport');
+const cors = require('cors');
 const express = require('express');
 
 const usersRouter = require('./routes/users');
@@ -10,9 +11,13 @@ const authRouter = require('./routes/auth');
 const searchsRouter = require('./routes/searchs');
 const postsRouter = require('./routes/posts');
 
+const swaggerSpec = require('./utils/swagger/swaggerSpec');
+const swaggerUI = require('swagger-ui-express');
+
 const app = express();
 
 app.use(express.json());
+
 app.use(session({
     secret: 'keyboard cat',
     resave: false,
@@ -21,6 +26,8 @@ app.use(session({
 app.use(passport.authenticate('session'));
 app.use(passport.initialize());
 app.use(passport.session());
+
+app.use(cors());
 
 app.get('/', async (req, res, next) => {
     try {
@@ -39,6 +46,7 @@ app.use('/users', usersRouter);
 app.use('/auth', authRouter);
 app.use('/searchs', searchsRouter);
 app.use('/posts', postsRouter);
+app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerSpec, { explorer: true }));
 
 app.use((req, res, next) => {
     next(createError.NotFound());
