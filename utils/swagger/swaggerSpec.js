@@ -13,10 +13,10 @@ const options = {
         baseDir: __dirname,
         servers: [
             {
-                url: `http://localhost:${config.port}`
+                url: `${config.heroku_url}`
             },
             {
-                url: `${config.heroku_url}`
+                url: `http://localhost:${config.port}`
             }
         ]
     },
